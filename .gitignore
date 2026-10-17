@@ -1,0 +1,38 @@
+# ---------- 构建产物 ----------
+# CMakeLists.txt 把 exe 直接产到项目根目录（CMAKE_RUNTIME_OUTPUT_DIRECTORY），
+# 所以这里必须显式点名，不能只靠 *.exe 兜底
+/TicTacToe.exe
+
+# CLion 每套工具链一个构建目录
+/cmake-build-*/
+
+# 文档里那条命令用的是 -B build
+/build/
+
+# 就地构建时的中间产物
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+compile_commands.json
+*.ninja
+.ninja_deps
+.ninja_log
+
+# ---------- 运行时数据 ----------
+# 存档与战绩，写在 exe 同目录，每人一份，不该进版本库
+/tictactoe.dat
+
+# ---------- 编辑器 / IDE ----------
+# .idea 里存的是本机绝对路径（还停在改名前的 Tic‑Tac‑Toe），换台机器就失效。
+# 用 CLion 打开项目时会重新生成，所以整个不提交。
+/.idea/
+
+# Claude Code 的个人设置（项目级 CLAUDE.md 不在此列，那个要提交）
+/.claude/settings.local.json
+
+# ---------- 兜底 ----------
+*.o
+*.obj
+*.exe
+*.dll
